@@ -54,6 +54,7 @@ parameters take precedence:
 use Rack::Timeout::Select, service_timeout: 5, exclude: ["api"]
 ```
 [Demo application](https://github.com/mkrl/rack-timeout-test)
+
 Please note that you may have controller actions with names similar to your excludes/targets, use with wise.
 
 ---
