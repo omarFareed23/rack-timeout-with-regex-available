@@ -56,15 +56,16 @@ module Rack
       end
       
       def exclude_or_any?(env)
+        path_info = env['PATH_INFO']
         if @exclude.empty? & @only.empty?
           true
         elsif @only.empty?
-          !(@exclude.any? { |path| env['PATH_INFO'].include?(path) })
+          !(@exclude.any? { |path| path_info.match?(path) })
         elsif @exclude.empty?
-          @only.any? { |path| env['PATH_INFO'].include?(path) }
+          @only.any? { |path| path_info.match?(path) }
         else
           both = @only - @exclude
-          both.any? { |path| env['PATH_INFO'].include?(path) }
+          both.any? { |path| path_info.include?(path) }
         end
       end
     end
