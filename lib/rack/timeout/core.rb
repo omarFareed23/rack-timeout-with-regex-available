@@ -57,7 +57,6 @@ module Rack
       
       def exclude_or_any?(env)
         path_info = env['PATH_INFO']
-        byebug
         if @exclude.empty? & @only.empty?
           true
         elsif @only.empty?
