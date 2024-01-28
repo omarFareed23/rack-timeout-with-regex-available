@@ -65,7 +65,7 @@ module Rack
           @only.any? { |path| path_info.match?(path) }
         else
           both = @only - @exclude
-          both.any? { |path| path_info.include?(path) }
+          both.any? { |path| path_info.match?(path) }
         end
       end
     end
